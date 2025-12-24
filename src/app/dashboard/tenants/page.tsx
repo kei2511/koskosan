@@ -9,6 +9,8 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { formatCurrency, formatDate } from "@/lib/format";
+import { BulkUploadDialog } from "@/components/tenants/bulk-upload-dialog";
+import { ExportDataButton } from "@/components/tenants/export-data-button";
 
 export default async function TenantsPage() {
     const session = await auth();
@@ -69,12 +71,16 @@ export default async function TenantsPage() {
                         Kelola semua penyewa kos Anda
                     </p>
                 </div>
-                <Button asChild className="w-full md:w-auto">
-                    <Link href="/dashboard/tenants/new">
-                        <Plus className="mr-2 h-4 w-4" />
-                        Check-in Penyewa
-                    </Link>
-                </Button>
+                <div className="flex gap-2 w-full md:w-auto">
+                    <ExportDataButton tenants={allTenants} />
+                    <BulkUploadDialog />
+                    <Button asChild className="flex-1 md:flex-initial">
+                        <Link href="/dashboard/tenants/new">
+                            <Plus className="mr-2 h-4 w-4" />
+                            Check-in Penyewa
+                        </Link>
+                    </Button>
+                </div>
             </div>
 
             {/* Stats */}

@@ -220,6 +220,19 @@ export default async function PropertyDetailPage({ params }: PropertyDetailPageP
                                             )}
                                         </div>
                                     )}
+
+                                    <div className="mt-3 pt-3 border-t">
+                                        <RoomDialog
+                                            propertyId={property.id}
+                                            room={{
+                                                id: room.id,
+                                                roomNumber: room.roomNumber,
+                                                price: room.price,
+                                                status: room.status,
+                                                facilities: room.facilities
+                                            }}
+                                        />
+                                    </div>
                                 </CardContent>
                             </Card>
                         ))}

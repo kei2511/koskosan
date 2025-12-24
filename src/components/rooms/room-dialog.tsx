@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
-import { Plus, Loader2, DoorOpen } from "lucide-react";
+import { Plus, Loader2, DoorOpen, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -122,10 +122,17 @@ export function RoomDialog({ propertyId, room }: RoomDialogProps) {
     return (
         <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
-                <Button>
-                    <Plus className="mr-2 h-4 w-4" />
-                    {room ? "Edit Kamar" : "Tambah Kamar"}
-                </Button>
+                {room ? (
+                    <Button variant="outline" size="sm" className="w-full text-xs">
+                        <Settings className="mr-2 h-3 w-3" />
+                        Edit Kamar
+                    </Button>
+                ) : (
+                    <Button>
+                        <Plus className="mr-2 h-4 w-4" />
+                        Tambah Kamar
+                    </Button>
+                )}
             </DialogTrigger>
             <DialogContent className="sm:max-w-[500px]">
                 <DialogHeader>
