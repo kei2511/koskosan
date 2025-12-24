@@ -10,17 +10,20 @@ import {
     TrendingUp,
     AlertCircle,
     CheckCircle2,
-    Clock
+    Clock,
+    Crown
 } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { formatCurrency } from "@/lib/format";
+import type { SubscriptionPlan } from "@/lib/subscription";
 
 export default async function DashboardPage() {
     const session = await auth();
     const userId = session?.user?.id;
+    const userPlan = ((session?.user as any)?.subscriptionPlan as SubscriptionPlan) || 'free';
 
     // Fetch dashboard stats
     const [propertyCount] = await db
@@ -154,9 +157,23 @@ export default async function DashboardPage() {
             {/* Welcome Header */}
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                 <div>
-                    <h1 className="text-2xl md:text-3xl font-bold">
-                        Halo, {session?.user?.name?.split(" ")[0]}! 👋
-                    </h1>
+                    <div className="flex items-center gap-3">
+                        <h1 className="text-2xl md:text-3xl font-bold">
+                            Halo, {session?.user?.name?.split(" ")[0]}! 👋
+                        </h1>
+                        {userPlan === 'pro' ? (
+                            <Badge className="bg-gradient-to-r from-amber-500 to-orange-500 text-white">
+                                <Crown className="h-3 w-3 mr-1" />
+                                PRO
+                            </Badge>
+                        ) : (
+                            <Badge variant="outline" asChild>
+                                <Link href="/dashboard/upgrade" className="cursor-pointer hover:bg-muted">
+                                    FREE
+                                </Link>
+                            </Badge>
+                        )}
+                    </div>
                     <p className="text-muted-foreground mt-1">
                         Selamat datang kembali di KosManager
                     </p>

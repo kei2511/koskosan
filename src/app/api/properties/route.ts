@@ -2,8 +2,10 @@ import { NextRequest, NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { properties } from "@/lib/db/schema";
-import { eq, desc } from "drizzle-orm";
+import { eq, desc, count } from "drizzle-orm";
 import { propertySchema } from "@/lib/validations";
+import { canCreateProperty } from "@/lib/subscription";
+import type { SubscriptionPlan } from "@/lib/subscription";
 
 // GET: List all properties for the authenticated user
 export async function GET() {
@@ -42,6 +44,25 @@ export async function POST(request: NextRequest) {
             return NextResponse.json(
                 { error: "Unauthorized" },
                 { status: 401 }
+            );
+        }
+
+        // Check subscription limits
+        const userPlan = ((session.user as any).subscriptionPlan as SubscriptionPlan) || 'free';
+
+        // Get current property count
+        const [{ count: propertyCount }] = await db
+            .select({ count: count() })
+            .from(properties)
+            .where(eq(properties.ownerId, session.user.id));
+
+        if (!canCreateProperty(userPlan, propertyCount)) {
+            return NextResponse.json(
+                {
+                    error: "Limit properti tercapai. Upgrade ke PRO untuk unlimited properti.",
+                    upgradeRequired: true
+                },
+                { status: 403 }
             );
         }
 

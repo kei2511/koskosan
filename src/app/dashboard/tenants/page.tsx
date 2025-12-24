@@ -11,10 +11,12 @@ import Link from "next/link";
 import { formatCurrency, formatDate } from "@/lib/format";
 import { BulkUploadDialog } from "@/components/tenants/bulk-upload-dialog";
 import { ExportDataButton } from "@/components/tenants/export-data-button";
+import type { SubscriptionPlan } from "@/lib/subscription";
 
 export default async function TenantsPage() {
     const session = await auth();
     const userId = session?.user?.id;
+    const userPlan = (session?.user as any)?.subscriptionPlan as SubscriptionPlan || 'free';
 
     // Get all properties owned by user
     const userProperties = await db
@@ -73,7 +75,7 @@ export default async function TenantsPage() {
                 </div>
                 <div className="flex gap-2 w-full md:w-auto">
                     <ExportDataButton tenants={allTenants} />
-                    <BulkUploadDialog />
+                    <BulkUploadDialog userPlan={userPlan} />
                     <Button asChild className="flex-1 md:flex-initial">
                         <Link href="/dashboard/tenants/new">
                             <Plus className="mr-2 h-4 w-4" />
