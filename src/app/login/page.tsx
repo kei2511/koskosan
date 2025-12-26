@@ -66,7 +66,7 @@ export default function LoginPage() {
                     <div>
                         <CardTitle className="text-2xl font-bold">Selamat Datang</CardTitle>
                         <CardDescription className="mt-2">
-                            Masuk ke akun KosManager Anda
+                            Masuk ke akun KOMA Anda
                         </CardDescription>
                     </div>
                 </CardHeader>

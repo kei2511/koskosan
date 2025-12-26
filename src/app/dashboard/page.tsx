@@ -175,7 +175,7 @@ export default async function DashboardPage() {
                         )}
                     </div>
                     <p className="text-muted-foreground mt-1">
-                        Selamat datang kembali di KosManager
+                        Selamat datang kembali di KOMA
                     </p>
                 </div>
                 <Button asChild className="w-full md:w-auto">

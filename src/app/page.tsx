@@ -53,7 +53,7 @@ export default function HomePage() {
     {
       name: "Budi Santoso",
       role: "Pemilik 3 Kos",
-      content: "KosManager sangat membantu saya mengelola 3 properti kos. Tagihan jadi teratur!",
+      content: "KOMA sangat membantu saya mengelola 3 properti kos. Tagihan jadi teratur!",
       rating: 5,
     },
     {
@@ -79,7 +79,7 @@ export default function HomePage() {
             <div className="h-9 w-9 rounded-xl gradient-primary flex items-center justify-center">
               <Building2 className="h-5 w-5 text-white" />
             </div>
-            <span className="font-bold text-xl">KosManager</span>
+            <span className="font-bold text-xl">KOMA</span>
           </Link>
           <div className="flex items-center gap-3">
             <Button variant="ghost" asChild>
@@ -192,7 +192,7 @@ export default function HomePage() {
               Dipercaya Juragan Kos
             </h2>
             <p className="text-muted-foreground max-w-xl mx-auto">
-              Lihat apa kata mereka yang sudah menggunakan KosManager
+              Lihat apa kata mereka yang sudah menggunakan KOMA
             </p>
           </div>
 
@@ -228,7 +228,7 @@ export default function HomePage() {
             Mulai Kelola Kos Anda Sekarang
           </h2>
           <p className="text-primary-foreground/80 max-w-xl mx-auto mb-8">
-            Daftar gratis dan rasakan kemudahan mengelola kos-kosan dengan KosManager.
+            Daftar gratis dan rasakan kemudahan mengelola kos-kosan dengan KOMA.
           </p>
           <Button size="lg" variant="secondary" className="text-base h-12 px-8" asChild>
             <Link href="/register">
@@ -247,10 +247,10 @@ export default function HomePage() {
               <div className="h-8 w-8 rounded-lg gradient-primary flex items-center justify-center">
                 <Building2 className="h-4 w-4 text-white" />
               </div>
-              <span className="font-bold">KosManager</span>
+              <span className="font-bold">KOMA</span>
             </div>
             <p className="text-sm text-muted-foreground">
-              © 2024 KosManager. Dibuat dengan ❤️ di Indonesia.
+              © 2024 KOMA. Dibuat dengan ❤️ di Indonesia.
             </p>
           </div>
         </div>

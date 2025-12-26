@@ -10,12 +10,13 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "KosManager - Kelola Kos Lebih Mudah",
-    template: "%s | KosManager",
+    default: "KOMA - Kelola Kos Makin Mudah",
+    template: "%s | KOMA",
   },
-  description: "Aplikasi SaaS untuk manajemen kos-kosan. Kelola properti, kamar, penyewa, dan tagihan dengan mudah.",
-  keywords: ["kos", "kosan", "manajemen kos", "rental", "properti"],
-  authors: [{ name: "KosManager" }],
+  description: "KOMA (Kost Manager App) - Aplikasi SaaS untuk manajemen kos-kosan. Kelola properti, kamar, penyewa, dan tagihan dengan mudah.",
+  keywords: ["kos", "kosan", "manajemen kos", "rental", "properti", "koma"],
+  authors: [{ name: "KOMA" }],
+  applicationName: "KOMA",
 };
 
 export const viewport: Viewport = {

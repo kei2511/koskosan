@@ -98,7 +98,7 @@ def pytest_configure(config):
 
 def pytest_html_report_title(report):
     """Set custom HTML report title."""
-    report.title = "KosManager - Automated Test Report"
+    report.title = "KOMA - Automated Test Report"
 
 
 @pytest.hookimpl(hookwrapper=True)

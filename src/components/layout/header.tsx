@@ -80,8 +80,8 @@ export function Header() {
                                 <Building2 className="h-5 w-5 text-white" />
                             </div>
                             <div>
-                                <h1 className="font-bold text-lg">KosManager</h1>
-                                <p className="text-[10px] text-muted-foreground">Kelola Kos Lebih Mudah</p>
+                                <h1 className="font-bold text-lg">KOMA</h1>
+                                <p className="text-[10px] text-muted-foreground">Kelola Kos Makin Mudah</p>
                             </div>
                         </div>
                         <nav className="p-3 space-y-1">
@@ -113,7 +113,7 @@ export function Header() {
                     <div className="h-8 w-8 rounded-lg gradient-primary flex items-center justify-center">
                         <Building2 className="h-4 w-4 text-white" />
                     </div>
-                    <span className="font-bold text-lg">KosManager</span>
+                    <span className="font-bold text-lg">KOMA</span>
                 </div>
             </div>
 

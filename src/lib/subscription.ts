@@ -1,6 +1,6 @@
 /**
  * Subscription Helper Functions
- * KosManager - Subscription & Plan Management
+ * KOMA - Subscription & Plan Management
  */
 
 export type SubscriptionPlan = 'free' | 'pro';
